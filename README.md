@@ -1,5 +1,5 @@
-# makely - a tool for everyone
-### Grow an online business and optimize sales  
+# <img src="./public/images/hook.png" align="center" style="background-color: #000; border-radius: 4px; width: 16px; padding: 10px"> makely - a tool for everyone
+### Grow an online business and optimize sales
 
 ### Description
 makely will allow anyone to create a personalized online store. This store comes with the ability to create digital products, customers, track sales metrics, and analyze store data such as (Store visits and Total Revenue).
@@ -40,10 +40,10 @@ makely will allow anyone to create a personalized online store. This store comes
 
 #### Tech Stack
 ---
-MongoDB  
-Express  
-NodeJS   
+MongoDB
+Express
+NodeJS
 
-#### Frameworks  
+#### Frameworks
 ---
 tailwindcss
