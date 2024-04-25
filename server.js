@@ -18,6 +18,15 @@ app.get('/', (req, res) => {
   res.render('index.ejs');
 });
 
+app.get('/store/new', (req, res) => {
+  res.render('store/new.ejs');
+})
+
+app.post('/store', async (req, res) => {
+  await Store.create(req.body);
+  res.redirect('/store/new');
+});
+
 app.listen('3001', () => {
   console.log('Listening on port 3001');
 });
