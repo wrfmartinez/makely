@@ -1,10 +1,12 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const path = require("path");
 const Store = require('./models/store');
 
 // ---- CONFIGURATIONS ----
 const app = express();
+app.use(express.static(path.join(__dirname, "public")));
 dotenv.config();
 
 mongoose.connect(process.env.MONGODB_URI);
