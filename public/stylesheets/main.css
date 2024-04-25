@@ -2,6 +2,13 @@ body {
   background-color: #ececec;
 }
 
-.hide-element{
-  display: none;
+nav.sidebar {
+  position: absolute;
+  width: 220px;
+  height: 100dvh;
+}
+
+nav.mobilenav {
+  position: sticky;
+  width: 100%;
 }
