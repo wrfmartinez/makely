@@ -1,0 +1,26 @@
+{
+  "name": "makely",
+  "version": "1.0.0",
+  "description": "### Description makely will allow anyone to create a personalized online store. This store comes with the ability to create digital products, customers, track sales metrics, and analyze store data such as (Store visits and Total Revenue).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wrfmartinez/makely.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wrfmartinez/makely/issues"
+  },
+  "homepage": "https://github.com/wrfmartinez/makely#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.2"
+  }
+}
