@@ -1,4 +1,4 @@
-# <img src="./public/images/hook.png" align="center" style="background-color: #000; border-radius: 4px; width: 16px; padding: 10px"> makely - a tool for everyone
+# <img src="./public/images/hook.png" align="center" style="border-radius: 3px; width: 35px;"> makely - a tool for everyone
 ### Grow an online business and optimize sales
 
 ### Description
