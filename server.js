@@ -40,6 +40,12 @@ app.get('/product/new', (req, res) => {
   res.render('product/new.ejs');
 });
 
+app.get('/store/:productId/edit', async (req, res) => {
+  const foundProduct = await Product.findById(req.params.productId);
+  console.log(foundProduct);
+  res.render('product/edit.ejs', { product: foundProduct });
+});
+
 // Passes reference to all created products and the store to the store show page
 app.get('/store', async (req, res) => {
   const userStore = await Store.find();
