@@ -1994,6 +1994,10 @@ video {
     margin-right: 3.5rem;
   }
 
+  .md\:ml-5 {
+    margin-left: 1.25rem;
+  }
+
   .md\:block {
     display: block;
   }
@@ -2008,6 +2012,14 @@ video {
 
   .md\:w-\[450px\] {
     width: 450px;
+  }
+
+  .md\:items-start {
+    align-items: flex-start;
+  }
+
+  .md\:justify-start {
+    justify-content: flex-start;
   }
 
   .md\:px-\[30\%\] {

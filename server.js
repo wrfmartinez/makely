@@ -2,7 +2,6 @@ const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const path = require("path");
-// const multer  = require('multer')
 const Store = require('./models/store');
 const Product = require('./models/product');
 
@@ -16,10 +15,6 @@ mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}`);
 })
-
-// // Stores files in memory as Buffer objects to database
-// const storage = multer.memoryStorage();
-// const upload = multer({ storage: storage });
 
 // ---- ROUTES ----
 app.get('/', (req, res) => {
@@ -36,15 +31,20 @@ app.get('/product/new', (req, res) => {
 
 app.get('/store', async (req, res) => {
   const userStore = await Store.find();
-  res.render('store/index.ejs', { store: userStore });
+  const userProducts = await Product.find();
+  res.render('store/index.ejs', { store: userStore, products: userProducts });
 });
 
 app.post('/store', async (req, res) => {
   try {
-    await Store.create(req.body);
-    res.redirect('/store');
+    const storeData = { ...req.body, avatar: req.file.path };
+    storeAmount = await Store.find();
+    if (storeAmount.length < 1) {
+      await Store.create(req.body);
+      res.redirect('/store');
+    }
   } catch (err) {
-    console.log(`Error creating store or product: ${err}`);
+    console.log(`Error creating store: ${err}`);
     res.status(500).send('Internal Server Error');
   }
 });
@@ -61,10 +61,6 @@ app.post('/product', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-
-// app.put('/store', async (req, res) => {
-//   Store.findByIdAndUpdate();
-// })
 
 app.listen('3001', () => {
   console.log('Listening on port 3001');

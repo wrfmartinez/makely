@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
 const storeSchema = new mongoose.Schema({
-    // avatar: Buffer,
     brandName: String,
     bio: String,
     instagramLink: String,
