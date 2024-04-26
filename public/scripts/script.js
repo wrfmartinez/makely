@@ -1,8 +1,11 @@
-const mobileMenuButton = document.querySelector('.mobile-menu-button');
-const navLinks = document.querySelector('.nav-links');
+// const avatarImg = document.querySelector('.avatar-img');
+// const avatarInputElement = document.querySelector('#avatar');
 
-const onToggleMenu = () => {
-  navLinks.classList.toggle('hide-element');
-}
+// const displayImage = () => {
+//   // avatarImg.style.background = `url(${})`
+//   avatarImg.style.background = "unset";
+//   avatarImg.style.alignText = "center";
+//   avatarImg.textContent = "image upload successful"
+// }
 
-mobileMenuButton.addEventListener('click', onToggleMenu);
+// avatarInputElement.addEventListener('click', displayImage);
