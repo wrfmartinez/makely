@@ -47,7 +47,44 @@
             class="bg-black text-white text-sm rounded w-full py-1 lg:ml-20 mt-5 hover:bg-blue-700">+ Add Product</button></a>
           <aside class="lg:hidden pb-5 pt-5 flex items-center justify-center">
             <div class="border-5 bg-zinc-300 rounded-[40px] p-2">
-              <div class="bg-zinc-600 w-[320px] h-[600px] rounded-[40px]"></div>
+              <div class="flex flex-col items-center pt-5 bg-zinc-200 w-[320px] h-[600px] rounded-[40px]">
+                <h2 class="font-medium">
+                  <%= store[0].brandName %>
+                </h2>
+                <p>
+                  <%= store[0].bio %>
+                </p>
+                <div id="social-links" class="pb-5">
+                  <a href="instagram.com/<%= store[0].instagramLink %>">
+                    <% if (store[0].instagramLink) { %>
+                      <i class="fa-brands fa-square-instagram text-purple-600 text-[25px]"></i>
+                    <% } %>
+                  </a>
+                  <% if (store[0].youtubeLink) { %>
+                    <a href="youtube.com/@<%= store[0].youtubeLink %>">
+                      <i class="fa-brands fa-square-youtube text-red-700 text-[25px]"></i>
+                    </a>
+                  <% } %>
+                  <% if (store[0].xLink) { %>
+                    <a href="twitter.com/<%= store[0].xLink %>">
+                      <i class="fa-brands fa-x-twitter text-[25px]"></i>
+                    </a>
+                  <% } %>
+
+                </div>
+                <% products.forEach(product => { %>
+                  <div class="flex items-center justify-center bg-zinc-900 rounded w-[200px] h-[60px] mb-5 pl-2 pr-2 text-white">
+                    <div class="w-full flex justify-around">
+                      <h2>
+                        <%= product.productName %>
+                      </h2>
+                      <p>
+                        <%= `$${product.productPrice}` %>
+                      </p>
+                    </div>
+                  </div>
+                <% }); %>
+              </div>
               </div>
           </aside>
       </div>
@@ -62,18 +99,18 @@
               <%= store[0].bio %>
             </p>
             <div id="social-links" class="pb-5">
-              <a href="<%= store[0].instagramLink %>">
+              <a href="instagram.com/<%= store[0].instagramLink %>">
                 <% if (store[0].instagramLink) { %>
                   <i class="fa-brands fa-square-instagram text-purple-600 text-[25px]"></i>
                 <% } %>
               </a>
               <% if (store[0].youtubeLink) { %>
-                <a href="<%= store[0].youtubeLink %>">
+                <a href="youtube.com/@<%= store[0].youtubeLink %>">
                   <i class="fa-brands fa-square-youtube text-red-700 text-[25px]"></i>
                 </a>
               <% } %>
               <% if (store[0].xLink) { %>
-                <a href="<%= store[0].xLink %>">
+                <a href="twitter.com/<%= store[0].xLink %>">
                   <i class="fa-brands fa-x-twitter text-[25px]"></i>
                 </a>
               <% } %>
