@@ -45,7 +45,8 @@ app.get('/product/new', (req, res) => {
 
 // Deletes a specific product
 app.delete('/store/:productId', async (req, res) => {
-
+  const productToDelete = await Product.findByIdAndDelete(req.params.productId);
+  res.redirect('/store');
 });
 
 // Deletes your store

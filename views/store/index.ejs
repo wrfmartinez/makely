@@ -34,8 +34,12 @@
                 <p>
                   <%= `$${product.productPrice}` %>
                 </p>
+                <!-- EDIT BUTTON FOR PRODUCTS -->
                 <a href=""><button class="bg-zinc-500 hover:bg-black text-white rounded px-2">✎</button></a>
-                <a href=""><button class="bg-zinc-500 hover:bg-red-600 text-white rounded px-2">✕</button></a>
+                <!-- DELETE BUTTON FOR PRODUCTS -->
+                <form action="/store/<%=product._id%>?_method=DELETE" method="POST">
+                  <button class="bg-zinc-500 hover:bg-red-600 text-white rounded px-2">✕</button>
+                </form>
               </div>
             </div>
           <% }); %>
