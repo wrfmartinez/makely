@@ -17,24 +17,29 @@ mongoose.connection.on('connected', () => {
 })
 
 // ---- ROUTES ----
+// Renders homepage show page
 app.get('/', (req, res) => {
   res.render('index.ejs');
 });
 
+// Renders the create new store show page
 app.get('/store/new', (req, res) => {
   res.render('store/new.ejs');
 });
 
+// Renders the add new product show page
 app.get('/product/new', (req, res) => {
   res.render('product/new.ejs');
 });
 
+// Passes reference to all created products and the store to the store show page
 app.get('/store', async (req, res) => {
   const userStore = await Store.find();
   const userProducts = await Product.find();
   res.render('store/index.ejs', { store: userStore, products: userProducts });
 });
 
+// Creates a new store if one hasn't been created yet
 app.post('/store', async (req, res) => {
   try {
     storeAmount = await Store.find();
@@ -48,7 +53,7 @@ app.post('/store', async (req, res) => {
   }
 });
 
-// POST route for creating new products
+// Creates a new product
 app.post('/product', async (req, res) => {
   try {
     // Create a new product using the Product model
