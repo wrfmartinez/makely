@@ -99,13 +99,15 @@ app.delete('/store/:storeId', async (req, res) => {
 });
 
 // Edits a specific product
-app.put('/store/:productId/edit', async (req, res) => {
-
+app.put('/product/:productId', async (req, res) => {
+  await Product.findByIdAndUpdate(req.params.productId, req.body);
+  res.redirect('/store');
 });
 
 // Edits store
-app.put('/store/:storeId/edit', async (req, res) => {
-
+app.put('/store/:storeId', async (req, res) => {
+  await Store.findByIdAndUpdate(req.params.storeId, req.body);
+  res.redirect('/store');
 });
 
 app.listen('3001', () => {

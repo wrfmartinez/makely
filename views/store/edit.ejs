@@ -3,7 +3,7 @@
 <body class="md:flex">
   <%- include("../partials/sidebar") %>
     <main class="flex justify-center items-center h-dvh w-full ps-5 pe-5 text-white">
-      <form action="/store" method="POST" class="flex flex-col items-center justify-center bg-neutral-900 w-[400px] md:w-[450px] h-5/6 rounded-lg gap-1.5">
+      <form action="/store/<%=store._id%>?_method=PUT" method="POST" class="flex flex-col items-center justify-center bg-neutral-900 w-[400px] md:w-[450px] h-5/6 rounded-lg gap-1.5">
         <!-- <label for="avatar">
           <div class="avatar-img rounded-full w-5 p-14"></div><span class="plus-icon bg-blue-700">+</span>
         </label>
@@ -22,7 +22,12 @@
         <input type="text" id="youtubeLink" name="youtubeLink" placeholder="@<%=store.youtubeLink%>" class="w-9/12 p-2">
         <label for="xLink" class="label-title">X (formerly Twitter): </label>
         <input type="text" id="xLink" name="xLink" placeholder="@<%=store.xLink%>" class="w-9/12 p-2">
-        <input type="submit" class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-1 px-6 rounded-full self-end mr-12 mt-1 md:mr-14" value="Edit" name="submit">
+        <div class="flex flex-col self-end mr-12 mt-1 md:mr-14">
+        <input type="submit" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-1 px-6 rounded-full mb-5" value="Edit" name="submit">
+        <form action="/store/<%=store._id%>?_method=DELETE" method="POST">
+          <button class="bg-red-700 text-white rounded mt-20 px-2">Delete Store</button>
+        </div>
+        </form>
       </form>
     </main>
 </body>
