@@ -21,7 +21,7 @@
                     Store not found
                   <% } %>
               </h2>
-              <a href=""><button class="bg-zinc-500 hover:bg-black text-white rounded px-2">✎</button></a>
+              <a href="/store/<%=store[0]._id%>/edit"><button class="bg-zinc-500 hover:bg-black text-white rounded px-2">✎</button></a>
             </div>
           </div>
           <h3 class="text-center md:text-start lg:ml-20 mt-5">My Products</h3>
@@ -35,7 +35,7 @@
                   <%= `$${product.productPrice}` %>
                 </p>
                 <!-- EDIT BUTTON FOR PRODUCTS -->
-                <a href=""><button class="bg-zinc-500 hover:bg-black text-white rounded px-2">✎</button></a>
+                <a href="/store/<%=products._id%>/edit"><button class="bg-zinc-500 hover:bg-black text-white rounded px-2">✎</button></a>
                 <!-- DELETE BUTTON FOR PRODUCTS -->
                 <form action="/store/<%=product._id%>?_method=DELETE" method="POST">
                   <button class="bg-zinc-500 hover:bg-red-600 text-white rounded px-2">✕</button>
@@ -51,7 +51,7 @@
                 <h2 class="font-medium">
                   <%= store[0].brandName %>
                 </h2>
-                <p>
+                <p class="text-center">
                   <%= store[0].bio %>
                 </p>
                 <div id="social-links" class="pb-5">

@@ -7,9 +7,14 @@
       <img class="h-5 w-auto mt-0.5" src="/images/logo.png" alt="makely logo">
     </div>
     <div class="nav-links flex items-center p-5">
-      <div class="space-y-1 px-2 pb-3 pt-2"></div>
-      <a href="/store" class="text-white bg-blue-500 shadow hover:drop-shadow-[0px_5px_10px_rgba(200,200,200,0.5)] inline-block rounded-md px-3 py-1 text-base font-medium">My Store</a>
+      <div class="space-y-1 px-2 pb-3 pt-2">
+        <% if (store.length === 1) { %>
+          <a href="/store" class="text-white bg-blue-500 shadow hover:drop-shadow-[0px_5px_10px_rgba(200,200,200,0.5)] inline-block rounded-md px-3 py-1 text-base font-medium">My Store</a>
+          <% } else { %>
+            <a href="/store/new" class="text-white bg-blue-500 shadow hover:drop-shadow-[0px_5px_10px_rgba(200,200,200,0.5)] inline-block rounded-md px-3 py-1 text-base font-medium">Get Started</a>
+          <% } %>
       </div>
+    </div>
     </div>
   </nav>
   <header class="home-header flex flex-col justify-end items-center h-[700px]">

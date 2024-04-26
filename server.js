@@ -14,7 +14,7 @@ dotenv.config();
 // EXPRESS
 const app = express();
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
 // MONGODB
@@ -25,8 +25,9 @@ mongoose.connection.on('connected', () => {
 
 // ---- ROUTES ----
 // Renders homepage show page
-app.get('/', (req, res) => {
-  res.render('index.ejs');
+app.get('/', async (req, res) => {
+  const userStore = await Store.find();
+  res.render('index.ejs', { store: userStore });
 });
 
 // Renders the create new store show page
@@ -38,18 +39,6 @@ app.get('/store/new', (req, res) => {
 app.get('/product/new', (req, res) => {
   res.render('product/new.ejs');
 });
-
-// Edits a specific product
-
-// Edits store
-
-// Deletes a specific product
-app.delete('/store/:productId', async (req, res) => {
-  const productToDelete = await Product.findByIdAndDelete(req.params.productId);
-  res.redirect('/store');
-});
-
-// Deletes your store
 
 // Passes reference to all created products and the store to the store show page
 app.get('/store', async (req, res) => {
@@ -83,6 +72,28 @@ app.post('/product', async (req, res) => {
     console.error(`Error creating product: ${err}`);
     res.status(500).send('Internal Server Error');
   }
+});
+
+// Deletes a specific product
+app.delete('/store/:productId', async (req, res) => {
+  const productToDelete = await Product.findByIdAndDelete(req.params.productId);
+  res.redirect('/store');
+});
+
+// Deletes your store
+app.delete('/store/:storeId', async (req, res) => {
+  const storeToDelete = await Store.findByIdAndDelete(req.params.storeId);
+  res.redirect('/');
+});
+
+// Edits a specific product
+app.put('/store/:productId/edit', async (req, res) => {
+
+});
+
+// Edits store
+app.put('/store/:storeId/edit', async (req, res) => {
+
 });
 
 app.listen('3001', () => {
