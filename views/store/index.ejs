@@ -2,17 +2,17 @@
 
   <body class="md:flex">
     <%- include('../partials/sidebar.ejs') %>
-      <main class="w-full flex flex-col items-center md:block">
-        <h1 class="font-medium text-xl md:ml-5 mt-5">
-          Welcome back,
-          <% if (store[0]) { %>
-          <%= store[0].brandName %>
-          <% } else { %>
-            Store not found
-          <% } %>
-        </h1>
-        <div class="w-[300px]">
-          <div class="flex justify-center md:justify-start items-center bg-zinc-200 rounded w-[300px] h-[100px] pl-3 mt-5 md:ml-5">
+      <main class="w-full h-dvh flex flex-col justify-center items-center lg:flex-row md:justify-start md:items-center pb-5 lg:w-5/12">
+        <div id="products-container" class="w-[300px]">
+          <h1 class="font-medium text-xl w-full lg:ml-20 mt-[220px]">
+            Welcome back,
+            <% if (store[0]) { %>
+            <%= store[0].brandName %>
+            <% } else { %>
+              Store not found
+            <% } %>
+          </h1>
+          <div class="flex justify-center md:justify-start items-center bg-zinc-200 rounded w-[300px] h-[100px] pl-3 mt-5 lg:ml-20">
             <div class="flex gap-2">
               <h2>
                 <% if (store[0]) { %>
@@ -24,9 +24,9 @@
               <button class="bg-black text-white rounded px-2">edit</button>
             </div>
           </div>
-          <h3 class="ml-5 mt-5">My Products</h3>
+          <h3 class="text-center md:text-start lg:ml-20 mt-5">My Products</h3>
           <% products.forEach(product => { %>
-            <div class="flex items-center justify-center md:justify-start bg-zinc-200 rounded w-[300px] h-[100px] pl-3 mt-5 md:ml-5">
+            <div class="flex items-center justify-center md:justify-start bg-zinc-200 rounded w-[300px] h-[100px] pl-3 mt-5 lg:ml-20">
               <div class="flex gap-2">
                 <h2>
                   <%= product.productName %>
@@ -39,9 +39,56 @@
             </div>
           <% }); %>
           <a href="/product/new"><button id="add-product-btn"
-            class="bg-black text-white text-sm rounded w-full py-1 md:ml-5 mt-5 hover:bg-blue-700">+ Add Product</button></a>
-        </div>
+            class="bg-black text-white text-sm rounded w-full py-1 lg:ml-20 mt-5 hover:bg-blue-700">+ Add Product</button></a>
+          <aside class="lg:hidden flex items-center justify-center">
+            <div class="border-5 bg-zinc-300 rounded-[40px] p-2">
+              <div class="bg-zinc-600 w-[320px] h-[600px] rounded-[40px]"></div>
+              </div>
+          </aside>
+      </div>
       </main>
+      <aside class="hidden lg:flex items-center justify-center">
+        <div class="border-5 bg-zinc-300 rounded-[40px] p-2">
+          <div id="store-mobile-display" class="flex flex-col items-center pt-5 bg-zinc-200 w-[320px] h-[600px] rounded-[40px]">
+            <h2 class="font-medium">
+              <%= store[0].brandName %>
+            </h2>
+            <p>
+              <%= store[0].bio %>
+            </p>
+            <div id="social-links" class="pb-5">
+              <a href="<%= store[0].instagramLink %>">
+                <% if (store[0].instagramLink) { %>
+                  <i class="fa-brands fa-square-instagram text-purple-600 text-[25px]"></i>
+                <% } %>
+              </a>
+              <% if (store[0].youtubeLink) { %>
+                <a href="<%= store[0].youtubeLink %>">
+                  <i class="fa-brands fa-square-youtube text-red-700 text-[25px]"></i>
+                </a>
+              <% } %>
+              <% if (store[0].xLink) { %>
+                <a href="<%= store[0].xLink %>">
+                  <i class="fa-brands fa-x-twitter text-[25px]"></i>
+                </a>
+              <% } %>
+
+            </div>
+            <% products.forEach(product => { %>
+              <div class="flex items-center justify-center bg-zinc-900 rounded w-[200px] h-[60px] mb-5 pl-2 pr-2 text-white">
+                <div class="w-full flex justify-around">
+                  <h2>
+                    <%= product.productName %>
+                  </h2>
+                  <p>
+                    <%= `$${product.productPrice}` %>
+                  </p>
+                </div>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+      </aside>
   </body>
 
   </html>

@@ -78,3 +78,7 @@ span.plus-icon {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+main.h-dvh, #store-mobile-display  {
+  overflow-y: auto;
+}
