@@ -95,6 +95,7 @@ app.delete('/product/:productId', async (req, res) => {
 // Deletes your store
 app.delete('/store/:storeId', async (req, res) => {
   const storeToDelete = await Store.findByIdAndDelete(req.params.storeId);
+
   res.redirect('/');
 });
 

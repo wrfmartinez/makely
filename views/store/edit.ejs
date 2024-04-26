@@ -24,10 +24,10 @@
         <input type="text" id="xLink" name="xLink" placeholder="@<%=store.xLink%>" class="w-9/12 p-2">
         <div class="flex flex-col self-end mr-12 mt-1 md:mr-14">
         <input type="submit" class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-1 px-6 rounded-full mb-5" value="Edit" name="submit">
-        <form action="/store/<%=store._id%>?_method=DELETE" method="POST">
-          <button class="bg-red-700 text-white rounded mt-20 px-2">Delete Store</button>
-        </div>
-        </form>
+      </form>
+      <form action="/store/<%=store._id%>?_method=DELETE" method="POST">
+        <button class="bg-red-700 text-white rounded mt-20 px-2">Delete Store</button>
+      </div>
       </form>
     </main>
 </body>
