@@ -12,18 +12,59 @@ nav.mobilenav {
   width: 100%;
 }
 
-textarea {
-  resize: none;
+input {
+  color: black;
+  font-size: 14px;
+}
+
+.label-title {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 55px;
+}
+
+.bio-label-container {
+  width: 100%;
+  padding-right: 55px;
+}
+
+.bio-label-container .label-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bio-limit-indicator {
+  font-size: 9px;
+  color: #aaaaaa;
+}
+
+@media (max-width: 767px) {
+  .label-title {
+    padding-left: 50px;
+  }
+
+  .bio-label-container {
+    padding-right: 50px;
+  }
 }
 
 input#avatar {
   display: none;
 }
 
+.avatar-img {
+  background: url("../images/default-avatar.png");
+  background-color: #ececec;
+  background-size: cover;
+}
+
 span.plus-icon {
   position: relative;
-  left: 120px;
+  left: 85px;
   bottom: 30px;
-  padding: 6px 10px;
+  padding: 4px 10px;
+  width: 30px;
   border-radius: 15px;
 }

@@ -12,16 +12,27 @@
 
 <body class="md:flex">
   <%- include('../partials/sidebar') %>
-    <main class="flex justify-center items-center pt-5 pe-5 w-screen text-white">
-      <form action="/store" method="POST" class="flex flex-col items-center justify-center bg-neutral-900 w-5/12 h-4/5 rounded-lg">
-        <label for="avatar"><div class="rounded-full w-5 p-20 bg-white"></div><span class="plus-icon bg-blue-500">+</span></label>
+    <main class="flex justify-center items-center h-dvh w-full ps-5 pe-5 text-white">
+      <form action="/store" method="POST"
+        class="flex flex-col items-center justify-center bg-neutral-900 w-[400px] md:w-[450px] h-5/6 rounded-lg gap-1.5">
+        <label for="avatar">
+          <div class="avatar-img rounded-full w-5 p-14"></div><span class="plus-icon bg-blue-500">+</span>
+        </label>
         <input type="file" id="avatar">
-        <label for="brand-name">Brand Name</label>
-        <input type="text" id="brand-name" name="brand-name" placeholder="e.g., Tom Hanks" required>
-        <label for="bio">Bio</label>
-        <textarea id="bio" name="bio" placeholder="A short description of your brand" rows="4" maxlength="120" required></textarea>
-        <label for="social-links">Social Links (URL)</label>
-        <input type="text" id="social-links" placeholder="Your username">
+        <label for="brand-name" class="label-title">Brand Name</label>
+        <input type="text" id="brand-name" name="brand-name" placeholder="e.g., Tom Hanks" class="w-9/12 p-2" required>
+        <div class="bio-label-container">
+          <label for="bio" class="label-title">Bio<span class="bio-limit-indicator">0/80</span></label>
+        </div>
+        <input id="bio" name="bio" placeholder="A short description of your brand" rows="4" maxlength="80"
+          class="w-9/12 p-2" required>
+        <label class="label-title">Social Links (URL)</label>
+        <label for="social-link1" class="label-title">Instagram: </label>
+        <input type="text" id="social-link1" placeholder="Your username" class="w-9/12 p-2">
+        <label for="social-link2" class="label-title">YouTube: </label>
+        <input type="text" id="social-link2" placeholder="Your username" class="w-9/12 p-2">
+        <label for="social-link3" class="label-title">TikTok: </label>
+        <input type="text" id="social-link3" placeholder="Your username" class="w-9/12 p-2">
       </form>
     </main>
 </body>
