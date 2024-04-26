@@ -3,7 +3,6 @@ body {
 }
 
 nav.sidebar {
-  position: absolute;
   width: 220px;
   height: 100dvh;
 }
@@ -11,4 +10,20 @@ nav.sidebar {
 nav.mobilenav {
   position: sticky;
   width: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+input#avatar {
+  display: none;
+}
+
+span.plus-icon {
+  position: relative;
+  left: 120px;
+  bottom: 30px;
+  padding: 6px 10px;
+  border-radius: 15px;
 }

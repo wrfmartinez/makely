@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,21 @@
   <script defer src="/scripts/script.js"></script>
   <title>Store Creation</title>
 </head>
-<body>
+
+<body class="md:flex">
   <%- include('../partials/sidebar') %>
-  <form action="/store" method="POST">
-    <label for="brand-name">Brand Name</label>
-    <input type="text" id="brand-name" name="brand-name">
-  </form>
+    <main class="flex justify-center items-center pt-5 pe-5 w-screen text-white">
+      <form action="/store" method="POST" class="flex flex-col items-center justify-center bg-neutral-900 w-5/12 h-4/5 rounded-lg">
+        <label for="avatar"><div class="rounded-full w-5 p-20 bg-white"></div><span class="plus-icon bg-blue-500">+</span></label>
+        <input type="file" id="avatar">
+        <label for="brand-name">Brand Name</label>
+        <input type="text" id="brand-name" name="brand-name" placeholder="e.g., Tom Hanks" required>
+        <label for="bio">Bio</label>
+        <textarea id="bio" name="bio" placeholder="A short description of your brand" rows="4" maxlength="120" required></textarea>
+        <label for="social-links">Social Links (URL)</label>
+        <input type="text" id="social-links" placeholder="Your username">
+      </form>
+    </main>
 </body>
+
 </html>
