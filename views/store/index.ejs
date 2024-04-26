@@ -2,9 +2,9 @@
 
   <body class="md:flex">
     <%- include('../partials/sidebar.ejs') %>
-      <main class="w-full h-dvh flex flex-col justify-center items-center lg:flex-row md:justify-start md:items-center pb-5 lg:w-5/12">
+      <main class="w-full h-dvh flex justify-center lg:pt-7 lg:block pt-5 pb-5 lg:w-5/12">
         <div id="products-container" class="w-[300px]">
-          <h1 class="font-medium text-xl w-full lg:ml-20 mt-[220px]">
+          <h1 class="font-medium text-xl w-full lg:ml-20">
             Welcome back,
             <% if (store[0]) { %>
             <%= store[0].brandName %>
@@ -21,12 +21,12 @@
                     Store not found
                   <% } %>
               </h2>
-              <button class="bg-black text-white rounded px-2">edit</button>
+              <a href=""><button class="bg-zinc-500 hover:bg-black text-white rounded px-2">✎</button></a>
             </div>
           </div>
           <h3 class="text-center md:text-start lg:ml-20 mt-5">My Products</h3>
           <% products.forEach(product => { %>
-            <div class="flex items-center justify-center md:justify-start bg-zinc-200 rounded w-[300px] h-[100px] pl-3 mt-5 lg:ml-20">
+            <div class="flex items-center justify-center md:justify-start bg-zinc-200 rounded w-[300px] h-[100px] pl-3 pr-3 mt-5 lg:ml-20">
               <div class="flex gap-2">
                 <h2>
                   <%= product.productName %>
@@ -34,13 +34,14 @@
                 <p>
                   <%= `$${product.productPrice}` %>
                 </p>
-                <button class="bg-black text-white rounded px-2">edit</button>
+                <a href=""><button class="bg-zinc-500 hover:bg-black text-white rounded px-2">✎</button></a>
+                <a href=""><button class="bg-zinc-500 hover:bg-red-600 text-white rounded px-2">✕</button></a>
               </div>
             </div>
           <% }); %>
           <a href="/product/new"><button id="add-product-btn"
             class="bg-black text-white text-sm rounded w-full py-1 lg:ml-20 mt-5 hover:bg-blue-700">+ Add Product</button></a>
-          <aside class="lg:hidden flex items-center justify-center">
+          <aside class="lg:hidden pb-5 pt-5 flex items-center justify-center">
             <div class="border-5 bg-zinc-300 rounded-[40px] p-2">
               <div class="bg-zinc-600 w-[320px] h-[600px] rounded-[40px]"></div>
               </div>

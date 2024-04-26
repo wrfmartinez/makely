@@ -1,16 +1,23 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const path = require("path");
+const path = require('path');
+const methodOverride = require('method-override');
+
+// SCHEMAS
 const Store = require('./models/store');
 const Product = require('./models/product');
 
 // ---- CONFIGURATIONS ----
+dotenv.config();
+
+// EXPRESS
 const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
-dotenv.config();
+app.use(methodOverride("_method"));
 
+// MONGODB
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on('connected', () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}`);
@@ -31,6 +38,17 @@ app.get('/store/new', (req, res) => {
 app.get('/product/new', (req, res) => {
   res.render('product/new.ejs');
 });
+
+// Edits a specific product
+
+// Edits store
+
+// Deletes a specific product
+app.delete('/store/:productId', async (req, res) => {
+
+});
+
+// Deletes your store
 
 // Passes reference to all created products and the store to the store show page
 app.get('/store', async (req, res) => {
