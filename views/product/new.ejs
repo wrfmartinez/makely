@@ -1,0 +1,26 @@
+<%- include("../partials/head") %>
+
+  <body class="md:flex">
+    <%- include("../partials/sidebar") %>
+      <main>
+        <form action="/product" method="POST" class="flex flex-col items-center justify-center w-[400px] md:w-[450px] h-5/6 rounded-lg gap-1.5">
+          <label for="productName" class="label-title mb-3"><span class="bg-zinc-300 rounded-full w-52 px-3 py-2 mr-3">1</span>Product Title</label>
+          <input type="text" id="productName" name="productName" placeholder="Input Title Here" class="w-9/12 p-2" required>
+          <div class="bio-label-container">
+            <label for="productDesc" class="label-title mt-5 mb-3">
+              <div><span class="bg-zinc-300 rounded-full w-52 px-3 py-2 mr-3">2</span>Write Description</div>
+              <span class="bio-limit-indicator">0/500</span>
+            </label>
+          </div>
+          <textarea id="productDesc" name="productDesc" placeholder="Write Something..." rows="4" maxlength="500"
+            class="w-9/12 p-2" required></textarea>
+          <label class="label-title mt-5 mb-3"><span class="bg-zinc-300 rounded-full w-52 px-3 py-2 mr-3">3</span>Set
+            Price</label>
+          <label for="productPrice" class="label-title">Price($)* </label>
+          <input type="number" id="productPrice" name="productPrice" placeholder="0" min="0" class="w-9/12 p-2">
+          <input type="submit" id="save-product-btn"
+            class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-1 px-6 rounded self-end mr-12 mt-1 md:mr-14"
+            value="Save Product">
+        </form>
+      </main>
+  </body>

@@ -2,6 +2,10 @@ body {
   background-color: #ececec;
 }
 
+textarea {
+  resize: none;
+}
+
 nav.sidebar {
   width: 220px;
   height: 100dvh;

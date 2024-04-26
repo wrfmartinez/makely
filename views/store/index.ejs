@@ -1,7 +1,26 @@
 <%- include("../partials/head.ejs") %>
 
-<body class="md:flex">
-  <%- include('../partials/sidebar.ejs') %>
-  <h1>Welcome back, <%= store[1].brandName %></h1>
-</body>
-</html>
+  <body class="md:flex">
+    <%- include('../partials/sidebar.ejs') %>
+      <main class="w-full">
+        <h1 class="font-medium text-xl ml-5 mt-5">Welcome back, <%= store[1].brandName %>
+        </h1>
+        <div class="w-[300px]">
+          <div class="flex items-center bg-zinc-200 rounded w-[300px] h-[100px] pl-3 mt-5 ml-5">
+            <div class="flex gap-2">
+              <h2>
+                <%= store[1].brandName %>
+              </h2>
+              <button class="bg-black text-white rounded px-2">edit</button>
+            </div>
+          </div>
+          <div id="product-container">
+
+          </div>
+          <a href="/product/new"><button id="add-product-btn"
+            class="bg-black text-white text-sm rounded w-full py-1 ml-5 mt-5 hover:bg-blue-700">+ Add Product</button></a>
+        </div>
+      </main>
+  </body>
+
+  </html>

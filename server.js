@@ -9,6 +9,7 @@ const Product = require('./models/product');
 // ---- CONFIGURATIONS ----
 const app = express();
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
 dotenv.config();
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -39,30 +40,31 @@ app.get('/store', async (req, res) => {
 });
 
 app.post('/store', async (req, res) => {
-  // const storeCheck = await Store.find();
   try {
-    // while (storeCheck.length > 1) {
-    //   // delete stores
-    // }
     await Store.create(req.body);
+    res.redirect('/store');
   } catch (err) {
-    console.log(`Error in saving Store: ${err}`);
+    console.log(`Error creating store or product: ${err}`);
+    res.status(500).send('Internal Server Error');
   }
-  res.redirect('/store');
 });
 
-app.post('/store/product', async (req, res) => {
-  // const storeCheck = await Store.find();
+// POST route for creating new products
+app.post('/product', async (req, res) => {
   try {
-    // while (storeCheck.length > 1) {
-    //   // delete stores
-    // }
+    // Create a new product using the Product model
     await Product.create(req.body);
+    // Redirect to the store page after adding the product
+    res.redirect('/store');
   } catch (err) {
-    console.log(`Error creating product: ${err}`);
+    console.error(`Error creating product: ${err}`);
+    res.status(500).send('Internal Server Error');
   }
-  res.redirect('/store');
 });
+
+// app.put('/store', async (req, res) => {
+//   Store.findByIdAndUpdate();
+// })
 
 app.listen('3001', () => {
   console.log('Listening on port 3001');
