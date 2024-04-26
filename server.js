@@ -20,11 +20,16 @@ app.get('/', (req, res) => {
 
 app.get('/store/new', (req, res) => {
   res.render('store/new.ejs');
-})
+});
+
+app.get('/store', async (req, res) => {
+  const userStore = await Store.find();
+  res.render('store/index.ejs', { store: userStore });
+});
 
 app.post('/store', async (req, res) => {
   await Store.create(req.body);
-  res.redirect('/store/new');
+  res.redirect('/store');
 });
 
 app.listen('3001', () => {

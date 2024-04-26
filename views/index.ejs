@@ -1,13 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/stylesheets/output.css" rel="stylesheet">
-  <link href="/stylesheets/main.css" rel="stylesheet">
-  <title>makely - everyone can grow a business online</title>
-</head>
+<%- include("partials/head.ejs") %>
+
 <body>
-  <h1 class="bg-red-300">makely</h1>
+  <nav class="bg-black flex items-center justify-between pe-4">
+    <div class="flex flex-shrink-0 items-center ps-4">
+      <img class="h-6 w-auto me-2 rounded" src="/images/hook-white.png" alt="makely hook icon">
+      <img class="h-5 w-auto mt-0.5" src="/images/logo.png" alt="makely logo">
+    </div>
+    <div class="nav-links flex items-center p-5">
+      <div class="space-y-1 px-2 pb-3 pt-2"></div>
+      <a href="/store" class="text-white bg-blue-500 shadow hover:drop-shadow-[0px_5px_10px_rgba(200,200,200,0.5)] inline-block rounded-md px-3 py-1 text-base font-medium">My Store</a>
+      </div>
+    </div>
+  </nav>
+  <header class="home-header flex flex-col justify-end items-center h-[700px]">
+    <a href="/store/new"><button class="text-black border border-zinc-300 bg-transparent hover:bg-green-400 hover:text-green-900 hover:transition inline-block rounded-full px-8 py-1 font-normal text-sm">Get your brand started</button></a>
+    <h1 class="text-8xl font-extrabold pt-3">makely</h1>
+    <h2 class="text-xl font-bold pt-4">a tool for everyone to</h2>
+    <p class="text-zinc-500 font-medium pt-1 pb-6">grow an online business and optimize their income</p>
+    <img class="w-[800px]" src="images/pathway-img.svg" alt="A roadlike graphic leading to the makely logo">
+  </header>
 </body>
 </html>

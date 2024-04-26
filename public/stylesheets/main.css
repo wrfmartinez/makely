@@ -68,3 +68,9 @@ span.plus-icon {
   width: 30px;
   border-radius: 15px;
 }
+
+.home-header {
+  background: url("/images/bg-texture.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

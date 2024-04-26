@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/stylesheets/output.css" rel="stylesheet">
-  <link href="/stylesheets/main.css" rel="stylesheet">
-  <script defer src="/scripts/script.js"></script>
-  <title>Store Creation</title>
-</head>
+<%- include("../partials/head.ejs") %>
 
 <body class="md:flex">
-  <%- include('../partials/sidebar') %>
+  <%- include("../partials/sidebar") %>
     <main class="flex justify-center items-center h-dvh w-full ps-5 pe-5 text-white">
       <form action="/store" method="POST"
         class="flex flex-col items-center justify-center bg-neutral-900 w-[400px] md:w-[450px] h-5/6 rounded-lg gap-1.5">
