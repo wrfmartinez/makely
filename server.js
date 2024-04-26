@@ -37,7 +37,6 @@ app.get('/store', async (req, res) => {
 
 app.post('/store', async (req, res) => {
   try {
-    const storeData = { ...req.body, avatar: req.file.path };
     storeAmount = await Store.find();
     if (storeAmount.length < 1) {
       await Store.create(req.body);
