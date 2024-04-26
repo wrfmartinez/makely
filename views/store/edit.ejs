@@ -1,0 +1,30 @@
+<%- include("../partials/head.ejs") %>
+
+<body class="md:flex">
+  <%- include("../partials/sidebar") %>
+    <main class="flex justify-center items-center h-dvh w-full ps-5 pe-5 text-white">
+      <form action="/store" method="POST" class="flex flex-col items-center justify-center bg-neutral-900 w-[400px] md:w-[450px] h-5/6 rounded-lg gap-1.5">
+        <!-- <label for="avatar">
+          <div class="avatar-img rounded-full w-5 p-14"></div><span class="plus-icon bg-blue-700">+</span>
+        </label>
+        <input type="file" id="avatar" name="avatar"> -->
+        <label for="brandName" class="label-title">Edit Brand Name</label>
+        <input type="text" id="brandName" name="brandName" placeholder="<%=store.brandName%>" class="w-9/12 p-2" required>
+        <div class="bio-label-container">
+          <label for="bio" class="label-title">Edit Bio<span class="bio-limit-indicator">0/80</span></label>
+        </div>
+        <input type="text" id="bio" name="bio" placeholder="<%=store.bio%>" rows="4" maxlength="80"
+          class="w-9/12 p-2" required>
+        <label class="label-title">Social Links (URL)</label>
+        <label for="instagramLink" class="label-title">Instagram: </label>
+        <input type="text" id="instagramLink" name="instagramLink" placeholder="@<%=store.instagramLink%>" class="w-9/12 p-2">
+        <label for="youtubeLink" class="label-title">YouTube: </label>
+        <input type="text" id="youtubeLink" name="youtubeLink" placeholder="@<%=store.youtubeLink%>" class="w-9/12 p-2">
+        <label for="xLink" class="label-title">X (formerly Twitter): </label>
+        <input type="text" id="xLink" name="xLink" placeholder="@<%=store.xLink%>" class="w-9/12 p-2">
+        <input type="submit" class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-1 px-6 rounded-full self-end mr-12 mt-1 md:mr-14" value="Edit" name="submit">
+      </form>
+    </main>
+</body>
+
+</html>

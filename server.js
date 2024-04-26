@@ -40,11 +40,17 @@ app.get('/product/new', (req, res) => {
   res.render('product/new.ejs');
 });
 
-app.get('/store/:productId/edit', async (req, res) => {
+// Renders the edit page for a product
+app.get('/product/:productId/edit', async (req, res) => {
   const foundProduct = await Product.findById(req.params.productId);
-  console.log(foundProduct);
   res.render('product/edit.ejs', { product: foundProduct });
 });
+
+// Renders the edit page for users store
+app.get('/store/:storeId/edit', async (req, res) => {
+  const foundStore = await Store.findById(req.params.storeId);
+  res.render('store/edit.ejs', { store: foundStore });
+})
 
 // Passes reference to all created products and the store to the store show page
 app.get('/store', async (req, res) => {
@@ -81,7 +87,7 @@ app.post('/product', async (req, res) => {
 });
 
 // Deletes a specific product
-app.delete('/store/:productId', async (req, res) => {
+app.delete('/product/:productId', async (req, res) => {
   const productToDelete = await Product.findByIdAndDelete(req.params.productId);
   res.redirect('/store');
 });
