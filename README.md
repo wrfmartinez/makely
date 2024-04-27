@@ -40,8 +40,8 @@ makely will allow anyone to create a personalized online store. This store comes
 
 #### Tech Stack
 ---
-MongoDB
-Express
+MongoDB  
+Express  
 NodeJS
 
 #### Frameworks
