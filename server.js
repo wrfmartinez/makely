@@ -31,12 +31,14 @@ app.get('/', async (req, res) => {
 });
 
 // Renders the create new store show page
-app.get('/store/new', (req, res) => {
-  res.render('store/new.ejs');
+app.get('/store/new', async (req, res) => {
+  const userStore = await Store.find();
+  res.render('store/new.ejs', { store: userStore });
 });
 
 // Renders the add new product show page
 app.get('/product/new', (req, res) => {
+
   res.render('product/new.ejs');
 });
 
