@@ -30,6 +30,13 @@ app.get('/', async (req, res) => {
   res.render('index.ejs', { store: userStore });
 });
 
+// Passes reference to all created products and the store to the store show page
+app.get('/store', async (req, res) => {
+  const userStore = await Store.find();
+  const userProducts = await Product.find();
+  res.render('store/index.ejs', { store: userStore, products: userProducts });
+});
+
 // Renders the create new store show page
 app.get('/store/new', async (req, res) => {
   const userStore = await Store.find();
@@ -38,7 +45,6 @@ app.get('/store/new', async (req, res) => {
 
 // Renders the add new product show page
 app.get('/product/new', (req, res) => {
-
   res.render('product/new.ejs');
 });
 
@@ -53,13 +59,6 @@ app.get('/store/:storeId/edit', async (req, res) => {
   const foundStore = await Store.findById(req.params.storeId);
   res.render('store/edit.ejs', { store: foundStore });
 })
-
-// Passes reference to all created products and the store to the store show page
-app.get('/store', async (req, res) => {
-  const userStore = await Store.find();
-  const userProducts = await Product.find();
-  res.render('store/index.ejs', { store: userStore, products: userProducts });
-});
 
 // Creates a new store if one hasn't been created yet
 app.post('/store', async (req, res) => {
@@ -97,7 +96,6 @@ app.delete('/product/:productId', async (req, res) => {
 // Deletes your store
 app.delete('/store/:storeId', async (req, res) => {
   const storeToDelete = await Store.findByIdAndDelete(req.params.storeId);
-
   res.redirect('/');
 });
 
