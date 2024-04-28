@@ -40,11 +40,19 @@ app.get('/store', async (req, res) => {
 
 // Renders the customer show page
 app.get('/customers', async (req, res) => {
-  res.render('customer/index.ejs');
+  const allCustomers = await Customer.find();
+  res.render('customer/index.ejs', { customers: allCustomers });
 });
 
+// Renders the create a customer page
 app.get('/customer/new', async (req, res) => {
   res.render('customer/new.ejs')
+})
+
+// Finds a specific customer by id and shows their page
+app.get('/customer/:customerId', async (req, res) => {
+  const foundCustomer = await Customer.findById(req.params.customerId);
+  res.render('customer/show.ejs', { customer: foundCustomer })
 })
 
 // Renders the create new store show page
@@ -71,7 +79,7 @@ app.get('/store/:storeId/edit', async (req, res) => {
 })
 
 // Creates a new customer
-app.post('/customer', async (req, res) => {
+app.post('/customers', async (req, res) => {
   try {
       await Customer.create(req.body);
       res.redirect('/customers');
@@ -80,7 +88,6 @@ app.post('/customer', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-
 
 // Creates a new store if one hasn't been created yet
 app.post('/store', async (req, res) => {

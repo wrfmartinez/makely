@@ -1,0 +1,21 @@
+<%- include("../partials/head.ejs") %>
+
+  <body class="md:flex">
+    <%- include("../partials/sidebar.ejs") %>
+      <% const randomNum=Math.floor(Math.random() * 10000); %>
+        <main class="text-center p-7 md:text-start">
+          <h1 class="text-lg bg-black text-white rounded-md p-5 mb-3">Customer Details</h1>
+          <h2 class="font-bold mb-1">
+            <%= customer.customerName %>
+          </h2>
+          <p class="mb-1">
+            📧 <%= customer.customerEmail %>
+          </p>
+          <p class="mb-1">
+            📞 <%= customer.customerPhoneNumber %>
+          </p>
+          <p class="mb-1">
+            <%= customer.customerName %> has spent a total of $<%= randomNum %> worth of your products!
+          </p>
+        </main>
+  </body>
