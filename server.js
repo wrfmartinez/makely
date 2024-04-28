@@ -60,6 +60,11 @@ app.get('/store/:storeId/edit', async (req, res) => {
   res.render('store/edit.ejs', { store: foundStore });
 })
 
+// Renders the customer show page
+app.get('/customers', (req, res) => {
+  res.render('customers/index.ejs');
+});
+
 // Creates a new store if one hasn't been created yet
 app.post('/store', async (req, res) => {
   try {

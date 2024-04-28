@@ -1,0 +1,34 @@
+<%- include('../partials/head.ejs') %>
+
+  <body class="md:flex">
+    <%- include('../partials/sidebar.ejs') %>
+      <main class="w-full p-5">
+        <div class="flex justify-between items-center pr-5">
+          <h1 class="text-center md:text-start font-semibold text-xl p-7">Customers</h1>
+          <a href="/customers/new"><button class="flex justify-center items-center w-5 h-5 p-4 bg-blue-500 rounded-full text-white text-sm font-bold">+</button></a>
+        </div>
+        <table class="w-full">
+          <thead>
+            <tr>
+              <th class="border-slate-400  border-b-2 bg-slate-300 rounded-tl-lg p-2 font-normal text-sm text-slate-500"
+                scope="col">Name</th>
+              <th class="border-slate-400 border-b-2 bg-slate-200 font-normal text-sm text-slate-500" scope="col">Email
+              </th>
+              <th class="border-slate-400  border-b-2 bg-slate-300 rounded-tr-lg font-normal text-sm text-slate-500"
+                scope="col">Phone Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-slate-300 font-normal text-sm text-slate-500" rowspan="3">
+              <td scope"col" class="p-2">Fred</td>
+              <td class="p-2 bg-slate-200">@gmail.com</td>
+              <td class="p-2">3434433434</td>
+            </tr>
+          </tbody>
+          <tfoot class="flex">
+            <td class="font-normal text-sm pr-1" scope"row">Total Customers: </td>
+            <td class="text-sm">0</td>
+          </tfoot>
+        </table>
+      </main>
+  </body>
