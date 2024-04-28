@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 // SCHEMAS
 const Store = require('./models/store');
 const Product = require('./models/product');
+const Customer = require('./models/customer');
 
 // ---- CONFIGURATIONS ----
 dotenv.config();
@@ -37,6 +38,15 @@ app.get('/store', async (req, res) => {
   res.render('store/index.ejs', { store: userStore, products: userProducts });
 });
 
+// Renders the customer show page
+app.get('/customers', async (req, res) => {
+  res.render('customer/index.ejs');
+});
+
+app.get('/customer/new', async (req, res) => {
+  res.render('customer/new.ejs')
+})
+
 // Renders the create new store show page
 app.get('/store/new', async (req, res) => {
   const userStore = await Store.find();
@@ -60,10 +70,17 @@ app.get('/store/:storeId/edit', async (req, res) => {
   res.render('store/edit.ejs', { store: foundStore });
 })
 
-// Renders the customer show page
-app.get('/customers', (req, res) => {
-  res.render('customers/index.ejs');
+// Creates a new customer
+app.post('/customer', async (req, res) => {
+  try {
+      await Customer.create(req.body);
+      res.redirect('/customers');
+  } catch (err) {
+    console.log(`Error creating store: ${err}`);
+    res.status(500).send('Internal Server Error');
+  }
 });
+
 
 // Creates a new store if one hasn't been created yet
 app.post('/store', async (req, res) => {

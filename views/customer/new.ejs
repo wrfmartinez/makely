@@ -1,0 +1,22 @@
+<%- include("../partials/head") %>
+
+  <body class="md:flex">
+    <%- include("../partials/sidebar") %>
+      <main class="flex justify-center pt-9">
+        <form action="/customers" method="POST" class="flex flex-col items-center justify-center w-[400px] md:w-[450px] h-5/6 rounded-lg gap-1.5">
+          <label for="customerName" class="label-title mb-3"><span class="bg-zinc-300 rounded-full w-52 px-3 py-2 mr-3">1</span>Customer Name</label>
+          <input type="text" id="customerName" name="customerName" placeholder="Input name here" class="w-9/12 p-2" required>
+          <div class="bio-label-container">
+            <label for="customerEmail" class="label-title mt-5 mb-3">
+              <div><span class="bg-zinc-300 rounded-full w-52 px-3 py-2 mr-3">2</span>Email</div>
+            </label>
+          </div>
+          <input id="customerEmail" name="customerEmail" placeholder="Email goes here" class="w-9/12 p-2" required>
+          <label class="label-title mt-5 mb-3"><span class="bg-zinc-300 rounded-full w-52 px-3 py-2 mr-3">3</span>Phone Number</label>
+          <input type="text" id="customerPhoneNumber" name="customerPhoneNumber" placeholder="Enter phone number here" class="w-9/12 p-2">
+          <input type="submit" id="save-customer-btn"
+            class="bg-blue-700 hover:bg-blue-700 text-white font-bold py-1 px-6 rounded self-end mr-12 mt-1 md:mr-14"
+            value="Save Customer">
+        </form>
+      </main>
+  </body>
