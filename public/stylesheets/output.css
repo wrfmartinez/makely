@@ -790,6 +790,10 @@ video {
   width: 2.5rem;
 }
 
+.w-\[500px\] {
+  width: 500px;
+}
+
 .flex-shrink-0 {
   flex-shrink: 0;
 }
