@@ -1,8 +1,9 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const path = require('path');
 const methodOverride = require('method-override');
+const path = require('path');
+
 
 // SCHEMAS
 const Store = require('./models/store');
@@ -76,13 +77,13 @@ app.get('/product/:productId/edit', async (req, res) => {
 app.get('/store/:storeId/edit', async (req, res) => {
   const foundStore = await Store.findById(req.params.storeId);
   res.render('store/edit.ejs', { store: foundStore });
-})
+});
 
 // Creates a new customer
 app.post('/customers', async (req, res) => {
   try {
-      await Customer.create(req.body);
-      res.redirect('/customers');
+    await Customer.create(req.body);
+    res.redirect('/customers');
   } catch (err) {
     console.log(`Error creating store: ${err}`);
     res.status(500).send('Internal Server Error');
