@@ -5,7 +5,6 @@
       <main class="flex justify-center items-center h-dvh w-full ps-5 pe-5 text-white">
         <form action="/store/<%=store._id%>?_method=PUT" method="POST"
           class="flex flex-col items-center justify-center bg-neutral-900 w-[70%] md:w-[75%] rounded-lg gap-1.5">
-          <label for="img">
           <label for="brandName" class="label-title">Edit Brand Name</label>
           <input type="text" id="brandName" name="brandName" placeholder="<%=store.brandName%>" class="w-9/12 p-2"
             required>
