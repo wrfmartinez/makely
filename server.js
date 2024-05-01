@@ -140,6 +140,7 @@ app.put('/store/:storeId', async (req, res) => {
   res.redirect('/store');
 });
 
-app.listen('3001', () => {
-  console.log('Listening on port 3001');
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
